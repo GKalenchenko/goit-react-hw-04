@@ -1,10 +1,14 @@
 import { useState } from "react";
 import "./App.css";
 import SearchBar from "../SearchBar/SearchBar";
+import { getImages } from "../../image-api";
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const onSearch = (searchValue) => {
-    console.log(searchValue);
+    setSearchQuery(searchValue);
+    getImages(searchQuery); // Fix it, doesn't work due to asynchronous state update
   };
 
   return (
