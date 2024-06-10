@@ -3,6 +3,7 @@ import "./App.css";
 import SearchBar from "../SearchBar/SearchBar";
 import { getImages } from "../../image-api";
 import ImageGallery from "../ImageGallery/ImageGallery";
+import Loader from "../Loader/Loader";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -20,10 +21,14 @@ function App() {
 
     async function getData() {
       try {
+        setIsLoading(true);
         const data = await getImages(searchQuery);
 
         setImages((prevImages) => [...prevImages, ...data]);
-      } catch (error) {}
+      } catch (error) {
+      } finally {
+        setIsLoading(false);
+      }
     }
     getData();
   }, [searchQuery]);
@@ -32,6 +37,7 @@ function App() {
     <>
       <SearchBar onSubmit={onSearch} />
       <ImageGallery data={images} />
+      {isLoading && <Loader />}
     </>
   );
 }
