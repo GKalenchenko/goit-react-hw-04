@@ -1,4 +1,5 @@
 import { Formik, Form, Field } from "formik";
+import css from "../SearchBar/SearchBar.module.css";
 
 export default function SearchBar({ onSubmit }) {
   const initialValues = {
@@ -14,13 +15,16 @@ export default function SearchBar({ onSubmit }) {
     <>
       <header>
         <Formik initialValues={initialValues} onSubmit={handelSubmit}>
-          <Form>
+          <Form className={css.form}>
             <Field
+              className={css.input}
               type="text"
               name="searchInput"
               placeholder="Search images and photos"
             />
-            <button type="submit">Search</button>
+            <button type="submit" className={css.button}>
+              Search
+            </button>
           </Form>
         </Formik>
       </header>

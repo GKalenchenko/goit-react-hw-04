@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  justify-content: center;
+  background-color: navy;
+  padding: 20px;
+}
+
+.input {
+  margin-right: 15px;
+
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  width: 250px;
+  transition: box-shadow 0.3s ease;
+}
+
+.input:focus {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1f5d1b;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #318e2a;
+  transform: scale(1.05);
+}
+
+.button:active {
+  background-color: #318e2a;
+  transform: scale(0.95);
+}
