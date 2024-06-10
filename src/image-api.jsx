@@ -7,7 +7,7 @@ export const getImages = async (value, page) => {
   // value and page we will get from App statesß
   const response = await axios.get(`photos`, {
     params: {
-      page: 1,
+      page,
       query: value,
       per_page: 12,
       client_id: ACCESS_KEY,
