@@ -1,16 +1,18 @@
 import ImageCard from "../ImageCard/ImageCard";
 import css from "../ImageGallery/ImageGallery.module.css";
 
-export default function ImageGallery({ data }) {
+export default function ImageGallery({ data, modalOpen }) {
   return (
     <>
       <ul className={css.list}>
-        {data.map((imageData) => {
+        {data.map(({ urls, id, alt_description }) => {
           return (
-            <li key={imageData.id} className={css.item}>
+            <li key={id} className={css.item}>
               <ImageCard
-                path={imageData.urls.full}
-                description={imageData.alt_description}
+                imgFull={urls.full}
+                imgReg={urls.regular}
+                description={alt_description}
+                modalOpen={modalOpen}
               />
             </li>
           );

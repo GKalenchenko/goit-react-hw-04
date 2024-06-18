@@ -1,5 +1,8 @@
 import { Formik, Form, Field } from "formik";
+import toast from "react-hot-toast";
 import css from "../SearchBar/SearchBar.module.css";
+
+const error = () => toast.error("Please, enter the keyword!");
 
 export default function SearchBar({ onSubmit }) {
   const initialValues = {
@@ -7,6 +10,12 @@ export default function SearchBar({ onSubmit }) {
   };
 
   const handelSubmit = ({ searchInput }, actions) => {
+    if (searchInput.trim() === "") {
+      error();
+      console.log("aha");
+      return;
+    }
+
     onSubmit(searchInput);
     actions.resetForm();
   };
